@@ -1,6 +1,11 @@
 # django_my_personal_site
 My personal site.
 
+
+kill port
+
+    sudo lsof -t -i tcp:8000 | xargs kill -9
+
 Activate
 
     python3 -m venv venv
