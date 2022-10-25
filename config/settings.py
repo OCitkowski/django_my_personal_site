@@ -137,7 +137,7 @@ MEDIA_URL = '/media/'
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': os.path.join(BASE_DIR, 'blog_cache'),
+        'LOCATION': os.path.join(BASE_DIR, 'site_cache'),
     }
 }
 

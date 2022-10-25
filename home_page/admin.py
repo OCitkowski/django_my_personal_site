@@ -18,8 +18,10 @@ def make_withdrawn(modeladmin, request, queryset):
 
 
 class HomeAdmin(admin.ModelAdmin):
+    list_display = ('title_en', 'title_ua', 'status')
+    list_display_links = ('title_en', 'status')
     actions = [make_published, make_draft, make_withdrawn]
-    prepopulated_fields = {"title_en": ('title_ua', 'date_update')}
+    prepopulated_fields = {"title_en": ('title_ua', 'status')}
 
 
 admin.site.register(Home, HomeAdmin)

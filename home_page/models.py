@@ -21,7 +21,7 @@ class Home(models.Model):
 
 
     def __str__(self):
-        if len(self.text) >= 50:
-            return f"{self.text[:150]}..."
+        if len(self.title_en) >= 50:
+            return f"{self.title_en[:150]}..."
         else:
-            return f"{self.text[:150]}"
+            return f"{self.title_en[:150]}"
