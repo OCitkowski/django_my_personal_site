@@ -2,7 +2,6 @@ from django.urls import path
 # from .views import TestView
 # from rest_api.views import TestApiView, CommentApiView
 
-app_name = 'blog_urls'
 urlpatterns = [
     # ex: /blog
     # path('', TestView.as_view(), name='home'),
