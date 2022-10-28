@@ -15,6 +15,7 @@ class Home(models.Model):
     date_update = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 
+
     class Meta:
         ordering = ['title_en', 'title_ua', 'date_update']
         verbose_name = 'Home'

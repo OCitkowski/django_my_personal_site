@@ -33,5 +33,13 @@ Save to requirements.txt
 
 Created the project named by rest_api
 
-    django-admin startapp rest_api
+    django-admin startapp rest_api\
+
+Installation Django django-solo
+
+    pip install django-solo
+    https://github.com/lazybird/django-solo/blob/master/README.md
+
+i had a little problem, but, i had solution:
+python manage.py migrate --run-syncdb
 

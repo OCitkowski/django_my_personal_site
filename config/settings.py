@@ -40,9 +40,12 @@ INSTALLED_APPS = [
 
     # others apps
     'rest_framework',
+    'solo.apps.SoloAppConfig',
 
     # my apps
     'home_page.apps.HomePageConfig',
+    'basis_of_project.apps.BasisOfProjectConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -132,7 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = []
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 
 CACHES = {
     'default': {
