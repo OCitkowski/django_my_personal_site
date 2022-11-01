@@ -3,29 +3,30 @@
 
 {% block content %}
 <!--Main Start-->
-            <div id="main" class="site-main">
-<!--Banner Section Start-->
-                <section id="home" class="banner-section pt-page" style="background-image: url('img/background/home-bg.jpg')">
+<div id="main" class="site-main">
+    <!--Banner Section Start-->
+    <section id="home" class="banner-section pt-page" style="background-image: url('img/background/home-bg.jpg')">
 
-                    <div class="banner-content">
-                        <!--Banner Text-->
-                        <h1 class="mb-20">Oleksandr <span>Tsitkovsk</span></h1>
-                        <!--Animated Text-->
-                        <p class="cd-headline clip is-full-width">
-                        <span>I am a </span>
-                        <span class="cd-words-wrapper">
-                            <b class="is-visible">Graphics </b>
-                            <b>Freelancer</b>
-                            <b>Web Developer</b>
-                            <b>UI/UX Designer</b>
-                        </span>
+        <div class="banner-content">
+            <!--Banner Text-->
+            <h1 class="mb-20">{{ first.first_name_en }} <span>{{ first.second_name_en }}</span></h1>
+            <!--Animated Text-->
+            <p class="cd-headline clip is-full-width">
+                <span>I am a </span>
+                <span class="cd-words-wrapper">
+                            <b class="is-visible"> ... </b>
+                    {% for item_home in home %}
+                            <b>{{ item_home.title_en }}</b>
+                    {% empty %}
+                    {% endfor %}
+                </span>
 
-                        </p>
+            </p>
 
-                    </div>
+        </div>
 
-                </section>
-            </div>
+    </section>
+</div>
 <!--Banner Section End-->
 {% endblock content %}
 
