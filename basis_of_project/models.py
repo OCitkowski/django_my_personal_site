@@ -7,14 +7,6 @@ STATUS_CHOICES = [
     ('w', 'Withdrawn'),
 ]
 
-MENU = [{'title': "Home", 'url_name': ''},
-        {'title': "AboutMe", 'url_name': 'aboutme'},
-        {'title': "Resume", 'url_name': 'resume'},
-        {'title': "Portfolio", 'url_name': 'portfolio'},
-        {'title': "Blog", 'url_name': 'blogs'},
-        {'title': "Contact", 'url_name': 'contact'},
-        ]
-
 
 class SiteConfiguration(SingletonModel):
     site_name_en = models.CharField(max_length=255, default='Site Name')
