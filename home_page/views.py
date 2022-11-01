@@ -1,15 +1,8 @@
 from django.views.generic import ListView, DetailView, TemplateView
 from basis_of_project.models import SiteConfiguration
+from basis_of_project.utils import MENU
 from django.utils import timezone
 
-
-MENU = [{'title': "Home", 'url_name': '/home'},
-        {'title': "AboutMe", 'url_name': '/aboutme'},
-        # {'title': "Resume", 'url_name': '/resume'},
-        # {'title': "Portfolio", 'url_name': '/portfolio'},
-        # {'title': "Blog", 'url_name': '/blogs'},
-        # {'title': "Contact", 'url_name': '/contact'},
-        ]
 
 class HomeView(ListView):
 
