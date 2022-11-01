@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-random-animation="false" data-animation="11">
+    <head>
+
+        <!--Meta Tags-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="keywords" content="vcard, resume, personal, portfolio, cv, card, responsive" />
+        <meta name="description" content="vCard / Resume / Personal / Portfolio Template" />
+        <meta name="author" content="cosmos-themes" />
+
+        <!--Page Title-->
+        {% block title %}
+	    <title> {{ site_name_en }} </title>
+        {% endblock title %}
+
+        <!--Plugins Css-->
+        <link rel="stylesheet" href="{% static 'basis_of_project/css/plugins.css' %}">
+        <!--Main Styles Css-->
+        <link rel="stylesheet" href="{% static 'basis_of_project/css/style-dark.css' %}">
+        <!--Color Css-->
+        <link rel="stylesheet" href="{% static 'basis_of_project/css/blue-color.css' %}">
+        <!--Modernizr Js-->
+        <script src="{% static 'basis_of_project/js/modernizr.js' %}"></script>
+        <!--Favicons-->
+        <link rel="shortcut icon" href="basis_of_project/img/favicon.ico" type="image/x-icon">
+
+    </head>
+
+    <body>
+
+    {% include 'basis_of_project/preloader.html' %}
+
+        <div id="page">
+
+            <!--Header Start-->
+            <header>
+                <div class="header-content">
+
+                    <!--Mobile Header-->
+                    <div class="header-mobile">
+                        <a class="header-toggle"><i class="fas fa-bars"></i></a>
+                        <h2>Philip Watson</h2>
+                    </div>
+
+                    <!--Main Header-->
+                    <div class="header-main" data-simplebar>
+                        <div class="image-container">
+                            <h2 class="header-name">Oleksandr Tsitkovsky</h2>
+                            <img src="{% static 'basis_of_project/img/profile-img.jpg' %}" alt="profile-pic">
+                        </div>
+
+                        <!--Nav Menus-->
+                        <nav class="nav-menu">
+                            <ul>
+                                <li><a href="#home" class="pt-link active"><span class="nav-menu-icon"><i class="lnr lnr-home"></i></span>Home </a> </li>
+                                <li><a href="#about" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-user"></i></span>About Me</a></li>
+                                <li><a href="#resume" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-license"></i></span>Resume</a></li>
+                                <li><a href="#portfolio" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-briefcase"></i></span>Portfolio</a></li>
+                                <li><a href="#blog" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-book"></i></span>Blog</a></li>
+                                <li><a href="#contact" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-envelope"></i></span>Contact</a></li>
+                            </ul>
+                        </nav>
+
+                        <!--Nav Footer-->
+                        <div class="nav-footer">
+                            <!--Social Links-->
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-behance-square"></i></a></li>
+                            </ul>
+                            <!--Copyright Text-->
+                            <div class="copy">
+                                <p>2018 &copy; Cosmos-Themes.<br>All Right Reserved.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+            <!--Header End-->

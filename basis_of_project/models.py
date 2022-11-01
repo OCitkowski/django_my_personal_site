@@ -26,7 +26,6 @@ class SiteConfiguration(SingletonModel):
     second_name_en = models.CharField(max_length=255, default='Tsitkovsky')
     second_name_ua = models.CharField(max_length=255, default='Tsitkovsky ua')
 
-    # foto = models.ImageField(upload_to=conf_images/, height_field=500, width_field=500, max_length=100)
     foto = models.ImageField(verbose_name='Image', upload_to='images/%Y/%m/%d', blank=True)
 
 
