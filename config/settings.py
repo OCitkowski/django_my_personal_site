@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # others apps
     'rest_framework',
     'solo.apps.SoloAppConfig',
+    'debug_toolbar',
 
     # my apps
     'home_page.apps.HomePageConfig',
@@ -56,6 +57,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # others apps
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -156,3 +160,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated'
     ]
 }
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]

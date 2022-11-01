@@ -41,5 +41,11 @@ Installation Django django-solo
     https://github.com/lazybird/django-solo/blob/master/README.md
 
 i had a little problem, but, i had solution:
-python manage.py migrate --run-syncdb
+
+    python manage.py migrate --run-syncdb
+
+install django-debug-toolbar
+
+    https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
+    python -m pip install django-debug-toolbar
 

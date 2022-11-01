@@ -13,7 +13,7 @@
 
         <!--Page Title-->
         {% block title %}
-	    <title> {{ site_name_en }} </title>
+	    <title> {{ first.site_name_en }} </title>
         {% endblock title %}
 
         <!--Plugins Css-->
@@ -42,14 +42,16 @@
                     <!--Mobile Header-->
                     <div class="header-mobile">
                         <a class="header-toggle"><i class="fas fa-bars"></i></a>
-                        <h2>Philip Watson</h2>
+                        <h2>{{ first.first_name_en }}  {{ first.second_name_en }} </h2>
                     </div>
 
                     <!--Main Header-->
                     <div class="header-main" data-simplebar>
                         <div class="image-container">
-                            <h2 class="header-name">Oleksandr Tsitkovsky</h2>
-                            <img src="{% static 'basis_of_project/img/profile-img.jpg' %}" alt="profile-pic">
+                            <h2 class="header-name">{{ first.first_name_en }}  {{ first.second_name_en }}</h2>
+                            {% if first.foto %}
+                            <img src="{{ first.foto.url }}" alt="{{ first.first_name_en }}">
+                            {% endif %}
                         </div>
 
                         <!--Nav Menus-->
@@ -73,15 +75,15 @@
                         <div class="nav-footer">
                             <!--Social Links-->
                             <ul class="social">
-                                <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                                <li><a href={{ first.href_facebook }}><i class="fab fa-facebook-square"></i></a></li>
+                                <!--<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
                                 <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
                                 <li><a href="#"><i class="fab fa-dribbble-square"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-behance-square"></i></a></li>-->
                             </ul>
                             <!--Copyright Text-->
                             <div class="copy">
-                                <p>2018 &copy; Cosmos-Themes.<br>All Right Reserved.</p>
+                                <p>2023 &copy; ci <br>All Right Reserved.</p>
                             </div>
                         </div>
 

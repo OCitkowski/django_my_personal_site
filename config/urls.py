@@ -2,6 +2,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+from django.conf.urls.static import static
+from config import settings
 
 
 # Serializers define the API representation.
@@ -28,4 +32,15 @@ urlpatterns = [
     path('home/', include('home_page.urls')),
     path('api-auth/', include('rest_api.urls')),
     path('admin/', admin.site.urls),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+if settings.DEBUG:
+
+    if settings.MEDIA_ROOT:
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    urlpatterns += [
+        path('__debug__/', include('debug_toolbar.urls')),
+    ]

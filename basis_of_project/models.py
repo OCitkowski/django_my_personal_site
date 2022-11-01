@@ -18,6 +18,8 @@ class SiteConfiguration(SingletonModel):
     second_name_en = models.CharField(max_length=255, default='Tsitkovsky')
     second_name_ua = models.CharField(max_length=255, default='Tsitkovsky ua')
 
+    href_facebook = models.CharField(max_length=255, default='https://www.facebook.com/')
+
     foto = models.ImageField(verbose_name='Image', upload_to='images/%Y/%m/%d', blank=True)
 
 
