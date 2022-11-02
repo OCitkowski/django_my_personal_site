@@ -58,11 +58,12 @@
                         <nav class="nav-menu">
                             <ul>
                         {% for item_menu in menu %}
-                                <li><a href={{ item_menu.url_name }} class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-envelope"></i></span> {{ item_menu.title }} </a></li>
+                                <li><a href="{{ item_menu.url_name }}" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-envelope"></i></span> {{ item_menu.title }} </a></li>
                                  {% empty %}
                                 <li> No menu have been added yet </li>
                         {% endfor %}
                                 <!--<li><a href="#home" class="pt-link active"><span class="nav-menu-icon"><i class="lnr lnr-home"></i></span>Home </a> </li>
+                                <li><a href={{ item_menu.url_name }} class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-envelope"></i></span> {{ item_menu.title }} </a></li>
                    -->
                             </ul>
                         </nav>

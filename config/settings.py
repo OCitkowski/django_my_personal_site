@@ -44,9 +44,9 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     # my apps
-    'home_page.apps.HomePageConfig',
     'basis_of_project.apps.BasisOfProjectConfig',
-
+    'home_page.apps.HomePageConfig',
+    'about_me_page.apps.AboutMePageConfig',
 ]
 
 MIDDLEWARE = [
