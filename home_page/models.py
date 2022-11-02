@@ -1,11 +1,6 @@
 from django.db import models
+from basis_of_project.utils import STATUS_CHOICES
 
-
-STATUS_CHOICES = [
-    ('d', 'Draft'),
-    ('p', 'Published'),
-    ('w', 'Withdrawn'),
-]
 
 class Home(models.Model):
     """ information for theme"""

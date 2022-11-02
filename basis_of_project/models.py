@@ -1,12 +1,6 @@
 from django.db import models
 from solo.models import SingletonModel
 
-STATUS_CHOICES = [
-    ('d', 'Draft'),
-    ('p', 'Published'),
-    ('w', 'Withdrawn'),
-]
-
 
 class SiteConfiguration(SingletonModel):
     site_name_en = models.CharField(max_length=255, default='Site Name')
@@ -18,7 +12,10 @@ class SiteConfiguration(SingletonModel):
     second_name_en = models.CharField(max_length=255, default='Tsitkovsky')
     second_name_ua = models.CharField(max_length=255, default='Tsitkovsky ua')
 
-    href_facebook = models.CharField(max_length=255, default='https://www.facebook.com/')
+    href_facebook = models.CharField(max_length=255, default='https://www.facebook.com/o.citkowski/')
+    href_instagram = models.CharField(max_length=255, default='https://www.instagram.com/citkowski/')
+    href_github = models.CharField(max_length=255, default='https://www.github.com/OCitkowski')
+    href_linkedin = models.CharField(max_length=255, default='https://www.linkedin.com/in/oleksander-citkowski-b3368015b/')
 
     foto = models.ImageField(verbose_name='Image', upload_to='images/%Y/%m/%d', blank=True)
 
