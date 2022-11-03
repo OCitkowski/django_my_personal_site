@@ -49,3 +49,13 @@ install django-debug-toolbar
     https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
     python -m pip install django-debug-toolbar
 
+icon for the Services
+
+    http://www.appstraptheme.com/appstrap3.3.2/theme/elements-icons-linearicons.html
+
+template tags and filters
+
+    https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#safe
+
+
+

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from solo.admin import SingletonModelAdmin
-from .models import TextAboutMe, PersonalInformation
+from .models import TextAboutMe, PersonalInformation, Services
 
 class TextAboutMeAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'text')
@@ -10,3 +10,4 @@ class TextAboutMeAdmin(admin.ModelAdmin):
 
 admin.site.register(TextAboutMe, TextAboutMeAdmin)
 admin.site.register(PersonalInformation, SingletonModelAdmin)
+admin.site.register(Services)

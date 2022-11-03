@@ -34,3 +34,17 @@ class TextAboutMe(models.Model):
     class Meta:
         verbose_name = "About me"
         verbose_name_plural = "About me"
+
+
+class Services(models.Model):
+    title = models.CharField(max_length=100, default='Web Development')
+    text = models.TextField(max_length=1000,
+                            default='Amet aspernatur delectus maxime ducimus similique Ratione asperiores corporis provident aut libero.')
+    icon_text = models.TextField(max_length=1000, default='<i class="lnr lnr-laptop-phone">')
+
+    def __str__(self):
+        return "Services"
+
+    class Meta:
+        verbose_name = "Services"
+        verbose_name_plural = "Services"
