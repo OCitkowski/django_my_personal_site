@@ -28,6 +28,11 @@ router.register(r'users', UserViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 
+handler404 = 'basis_of_project.views.custom_page_not_found_view'
+# handler500 = 'basis_of_project.views.custom_error_view'
+# handler403 = 'basis_of_project.views.custom_permission_denied_view'
+# handler400 = 'basis_of_project.views.custom_bad_request_view'
+
 urlpatterns = [
     path('', include(router.urls)),
     path('home/', include('home_page.urls')),
