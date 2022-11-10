@@ -1,0 +1,138 @@
+{% load static %}
+{% include 'basis_of_project/header.html' %}
+
+{% block content %}
+
+<!--Resume Section Start-->
+<section id="resume" class="resume-section pt-page">
+    <div class="section-container">
+        <div class="page-heading">
+            <span class="icon"><i class="lnr lnr-license"></i> </span>
+            <h2>My Resume.</h2>
+        </div>
+
+        <!--Education & Experience Row Start-->
+        <div class="row mb-20">
+
+            <!--Experience Column Start-->
+            <div class="col-lg-6">
+                <div class="subheading">
+                    <h3>Experience</h3>
+                </div>
+                <ul class="experience">
+
+                    <!--Experience Item-->
+                    {% for item_experience in experience %}
+                    <b></b>
+
+                    <li>
+                        <span class="line-left"></span>
+                        <div class="content">
+                            <h4>{{ item_experience.title }}</h4>
+                            <h5>{{ item_experience.company }}</h5>
+                            <p class="info">
+                                {{ item_experience.text }}
+                            </p>
+                        </div>
+                        <span class="year">
+                            <span class="to">{{ item_experience.date_end|date:"Y" }}</span>
+                            <span class="from">{{ item_experience.date_start|date:"Y" }}</span>
+                        </span>
+                    </li>
+
+                    {% empty %}
+                    {% endfor %}
+
+                </ul>
+            </div>
+            <!--Experience Column End-->
+
+            <!--Education Column Start-->
+            <div class="col-lg-6">
+                <div class="subheading">
+                    <h3>Education</h3>
+                </div>
+
+                <ul class="education">
+                    {% for item_education in education %}
+                    <!--Education Item-->
+                    <li>
+                        <span class="line-left"></span>
+                        <div class="content">
+                            <h4>{{ item_education.title }}</h4>
+                            <h5>{{ item_education.place }}</h5>
+                            <p class="info">
+                                {{ item_education.text }}
+                            </p>
+                        </div>
+                        <span class="year">
+                                            <span class="to">{{ item_education.date_end|date:"Y" }}</span>
+                                            <span class="from">{{ item_education.date_start|date:"Y" }}</span>
+                                        </span>
+                    </li>
+                    {% empty %}
+                    <li>
+                        <span class="line-left"></span>
+                        <div class="content">
+                            <h4>MA Graphics</h4>
+                            <h5>Royal College of Art, London, UK</h5>
+                            <p class="info">
+                                Consectetur mollitia amet inventore nisi sed. Provident veritatis exercitationem eum
+                                doloremque itaque expedita? Ex voluptatem nostrum numquam illum.
+                            </p>
+                        </div>
+                        <span class="year">
+                                            <span class="to">2014</span>
+                                            <span class="from">2013</span>
+                                        </span>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+            <!--Education Column End-->
+
+        </div>
+        <!--Education & Experience Row End-->
+
+
+        <!--Skills Row Start-->
+        <div class="row">
+
+            <!--Design Skills Column Start-->
+            <div class="col-lg-6 skills">
+                <div class="subheading">
+                    <h3>My Skills</h3>
+                </div>
+                {% for item_skills in skills %}
+                <!--Design Skill Item-->
+                <div class="skill-item">
+                    <h4 class="progress-title">{{ item_skills.title }}</h4>
+                    <div class="progress">
+                        <div class="progress-bar" data-progress-value={{ item_skills.level }}>
+                            <div class="progress-value">{{ item_skills.level }}%</div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="skill-item">
+                    <h4 class="progress-title">Test</h4>
+                    <div class="progress">
+                        <div class="progress-bar" data-progress-value="100">
+                            <div class="progress-value">100%</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!--Design Skills Column End-->
+            </div>
+            <!--Skills Row End-->
+        </div>
+</section>
+<!--Resume Section End-->
+
+
+{% endblock content %}
+
+
+{% include 'basis_of_project/footer.html' %}
