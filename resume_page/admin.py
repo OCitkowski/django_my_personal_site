@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Home
+from .models import Experience, Education, Skills
 
 
 @admin.action(description='Mark selected blog as published')
@@ -17,11 +17,15 @@ def make_withdrawn(modeladmin, request, queryset):
     queryset.update(status='w')
 
 
-class HomeAdmin(admin.ModelAdmin):
-    list_display = ('title_en', 'status')
-    list_display_links = ('title_en', 'status')
+class ExperienceAdmin(admin.ModelAdmin):
     actions = [make_published, make_draft, make_withdrawn]
-    prepopulated_fields = {"title_en": ('status', )}
 
+class EducationAdmin(admin.ModelAdmin):
+    actions = [make_published, make_draft, make_withdrawn]
 
-admin.site.register(Home, HomeAdmin)
+class SkillsAdmin(admin.ModelAdmin):
+    actions = [make_published, make_draft, make_withdrawn]
+
+admin.site.register(Experience, ExperienceAdmin)
+admin.site.register(Education, EducationAdmin),
+admin.site.register(Skills, SkillsAdmin)

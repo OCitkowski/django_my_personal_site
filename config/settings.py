@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'basis_of_project.apps.BasisOfProjectConfig',
     'home_page.apps.HomePageConfig',
     'about_me_page.apps.AboutMePageConfig',
+    'resume_page.apps.ResumePageConfig',
 ]
 
 MIDDLEWARE = [
