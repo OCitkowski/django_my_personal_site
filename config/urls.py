@@ -38,6 +38,7 @@ urlpatterns = [
     path('home/', include('home_page.urls')),
     path('aboutme/', include('about_me_page.urls')),
     path('resume/', include('resume_page.urls')),
+    path('contact/', include('contact_page.urls')),
     path('api-auth/', include('rest_api.urls')),
     path('admin/', admin.site.urls),
     path('__debug__/', include('debug_toolbar.urls')),
