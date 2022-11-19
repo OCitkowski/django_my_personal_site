@@ -1,13 +1,84 @@
-<div style="margin:80px">
-		<h1>Contact</h1>
-		<h4>Contact us directly if you have any questions</h4>
-		<p>
-			Please write your name, email address and a message below if you have any questions.
-			One of our staff members will be happy to contact you directly and answer your questions as soon as possible.
-		</p>
-		<form method="post">
-        {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Submit</button>
-        </form>
+{% load static %}
+{% include 'basis_of_project/header.html' %}
+
+{% block content %}
+
+<!--Contact Section Start-->
+<section id="contact" class="contact-section pt-page">
+    <div class="section-container">
+
+        <!--Page Heading-->
+        <div class="page-heading">
+            <span class="icon"><i class="lnr lnr-envelope"></i></span>
+            <h2>Contact Me.</h2>
+        </div>
+
+        <!--Form Row-->
+        <div class="row mb-70">
+            <div class="col-lg-8  offset-lg-2">
+                <div class="subheading">
+                    <h3>Let's Talk</h3>
+                </div>
+
+                <!--Form Start-->
+                <form method="post" action="{% url 'contact_page:contact' %}">
+                {% csrf_token %}
+                    <div class=" row ">
+                    <!--Name Field-->
+
+                        <div class="col-md-12 mb-50">
+                                                    <span class="input">
+                                                        <input class="input__field cf-validate" type="text"
+                                                               id="{{ form.first_name.id_for_label }}"
+                                                               name="{{ form.first_name.label }}"/>
+                                                        <label class="input__label" for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                                    </span>
+                        </div>
+
+                        <div class="col-md-12 mb-50">
+                                                    <span class="input">
+                                                        <input class="input__field cf-validate" type="text"
+                                                               id="{{ form.last_name.id_for_label }}"
+                                                               name="{{ form.last_name.label }}"/>
+                                                        <label class="input__label" for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                                    </span>
+                        </div>
+
+                        <!--Message Box-->
+                        <div class="col-md-12 mb-30 text-center">
+                                                    <span class="input">
+                                                        <textarea class="input__field cf-validate"
+                                                                  id="{{ form.message.id_for_label }}"
+                                                                  name="{{ form.message.label }}" rows="5"></textarea>
+                                                        <label class="input__label"
+                                                               for="{{ form.message.id_for_label }}">How can we help you?</label>
+                                                    </span>
+                        </div>
+
+                        <!--Email Field-->
+                        <div class="col-md-12 mb-30 text-center">
+                                                    <span class="input">
+                                                        <input class="input__field cf-validate" type="email"
+                                                               id="{{ form.email_address.id_for_label }}"
+                                                               name="{{ form.email_address.label }}"/>
+                                                        <label class="input__label" for="{{ form.email_address.id_for_label }}">{{ form.email_address.label }}</label>
+                                                    </span>
+                        </div>
+
+                        <!--Submit Button-->
+                        <div class="col-md-12 text-center">
+                            <!-- <button id="cf-submit" class="btn-main">Send Message</button>-->
+                            <button  name="submit">Send Message</button>
+                            <input type="hidden" name="next" value="{% url 'about_page:about' %}">
+                        </div>
+
+                    </div>
+                </form>
+            <!--Form End-->
+
+        </div>
     </div>
+</section>
+
+{% endblock content %}
+{% include 'basis_of_project/footer.html' %}

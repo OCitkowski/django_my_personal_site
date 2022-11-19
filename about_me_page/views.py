@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView, TemplateView
 from basis_of_project.utils import MENU
 from django.utils import timezone
 from .models import TextAboutMe, PersonalInformation, Services
+from basis_of_project.models import SiteConfiguration
 
 
 class AboutView(ListView):
@@ -13,6 +14,8 @@ class AboutView(ListView):
         context = super().get_context_data(**kwargs)
         context['services_information'] = Services.objects.all()
         context['personal_information'] = PersonalInformation.objects.all().first()
+
+        context['first'] = SiteConfiguration.objects.all().first()
         context['now'] = timezone.now()
         context['menu'] = MENU
         return context
