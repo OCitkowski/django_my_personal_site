@@ -3,53 +3,88 @@
 
 {% block content %}
 
+<!--Contact Section Start-->
+<section id="contact" class="contact-section pt-page">
+    <div class="section-container">
 
-<form action="{% url 'contact_page:contact' %}" method="post">
+        <!--Page Heading-->
+        <div class="page-heading">
+            <span class="icon"><i class="lnr lnr-envelope"></i></span>
+            <h2>Contact Me.</h2>
+        </div>
 
-    {% csrf_token %}
-    {{ form.non_field_errors }}
+        <!--Form Row-->
+        <div class="row mb-70">
+            <div class="col-lg-8  offset-lg-2">
 
-    <div class="fieldWrapper">
-        {{ form.first_name.errors }}
-        <label for="{{ form.first_name.id_for_label }}">Your first name:</label>
-        {{ form.first_name }}
+                <!--Form Start-->
+                <form method="post" action="{% url 'contact_page:contact' %}">
+
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                    <div class=" row ">
+                    <!--Name Field-->
+
+                        <div class="col-md-12 mb-30">
+                                                    <span class="input">
+                                                        <input class="input__field cf-validate" type="text"
+                                                               id="{{ form.first_name.id_for_label }}"
+                                                               name="{{ form.first_name.label }}"/>
+                                                        <label class="input__label" for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                                    </span>
+                        </div>
+
+                        <div class="col-md-12 mb-30">
+                                                    <span class="input">
+                                                        <input class="input__field cf-validate" type="text"
+                                                               id="{{ form.last_name.id_for_label }}"
+                                                               name="{{ form.last_name.label }}"/>
+                                                        <label class="input__label" for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                                    </span>
+                        </div>
+
+                        <!--Message Box-->
+                        <div class="col-md-12 mb-30 text-center">
+                                                    <span class="input">
+                                                        <textarea class="input__field cf-validate"
+                                                                  id="{{ form.message.id_for_label }}"
+                                                                  name="{{ form.message.label }}" rows="5"></textarea>
+                                                        <label class="input__label"
+                                                               for="{{ form.message.id_for_label }}">How can we help you?</label>
+                                                    </span>
+                        </div>
+
+                        <!--Email Field-->
+                        <div class="col-md-12 mb-30 text-center">
+                                                    <span class="input">
+                                                        <input class="input__field cf-validate" type="email"
+                                                               id="{{ form.email_address.id_for_label }}"
+                                                               name="{{ form.email_address.label }}"/>
+                                                        <label class="input__label" for="{{ form.email_address.id_for_label }}">{{ form.email_address.label }}</label>
+                                                    </span>
+                        </div>
+
+                        <!--Submit Button-->
+                        <script src="https://www.google.com/recaptcha/api.js"></script>
+                        <button type="submit">
+                                <div class="g-recaptcha" data-sitekey="6LeUHicjAAAAAPwDs8NQn5Vmw6zElyp5iUj_-olU"> </div>
+                                <br/>
+                                <input type="submit" value="Send Message">
+                        </button>
+                        <script>
+                            function onSubmit(token) {
+                            document.getElementById("demo-form").submit();
+                        }
+                        </script>
+
+                    </div>
+                </form>
+            <!--Form End-->
+            </div>
+        </div>
     </div>
-
-    <div class="fieldWrapper">
-        {{ form.last_name.errors }}
-        <label for="{{ form.last_name.id_for_label }}">Your last name:</label>
-        {{ form.last_name }}
-    </div>
-
-    <div class="fieldWrapper">
-        {{ form.email_address.errors }}
-        <label for="{{ form.email_address.id_for_label }}">Your email address:</label>
-        {{ form.email_address }}
-    </div>
-
-    <div class="fieldWrapper">
-        {{ form.message.errors }}
-        <label for="{{ form.message.id_for_label }}">Your message:</label>
-        {{ form.message }}
-    </div>
-
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-
-    <button type="submit">
-            <div class="g-recaptcha" data-sitekey="6LeUHicjAAAAAPwDs8NQn5Vmw6zElyp5iUj_-olU"></div>
-            <br/>
-            <input type="submit" value="Submit">
-
-    </button>
-
-    <script>
-        function onSubmit(token) {
-        document.getElementById("demo-form").submit();
-    }
-    </script>
-
-
-</form>
+</section>
 
 {% endblock content %}
 {% include 'basis_of_project/footer.html' %}
