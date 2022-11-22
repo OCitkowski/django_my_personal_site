@@ -57,5 +57,7 @@ template tags and filters
 
     https://docs.djangoproject.com/en/dev/ref/templates/builtins/?from=olddocs#safe
 
-
+recapcha v.3
+    
+    https://developers.google.com/recaptcha/docs/display
 
