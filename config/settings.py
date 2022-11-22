@@ -167,8 +167,8 @@ RECAPTCHA_PUBLIC_KEY = "6LdNbhMjAAAAAFBrptfGBWxB1MqvFjroIPYv9pvU"
 RECAPTCHA_PRIVATE_KEY = "6LdNbhMjAAAAAKSUoYny1V7Ki5315fW4e4XyVx4f"
 
 #
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.mail.yahoo.com'

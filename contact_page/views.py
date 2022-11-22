@@ -6,6 +6,8 @@ from django.views.generic.edit import FormView
 from basis_of_project.utils import MENU
 from django.utils import timezone
 from basis_of_project.models import SiteConfiguration
+from django.core.mail import EmailMessage, BadHeaderError
+from django.shortcuts import HttpResponse, redirect
 
 class ContactFormView(FormView):
     template_name = 'contact_page/contact.html'
@@ -13,9 +15,7 @@ class ContactFormView(FormView):
     success_url = '/contact/'
 
     def form_valid(self, form):
-        # This method is called when valid form data has been POSTed.
-        # It should return an HttpResponse.
-        form.send_email()
+        self.send_email()
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -25,25 +25,24 @@ class ContactFormView(FormView):
         context['menu'] = MENU
         return context
 
-#
-# def contact(request):
-#     if request.method == 'POST':
-#         form = ContactForm(request.POST)
-#         if form.is_valid():
-#             subject = "Website Inquiry"
-#             body = {
-#                 'first_name': form.cleaned_data['first_name'],
-#                 'last_name': form.cleaned_data['last_name'],
-#                 'email': form.cleaned_data['email_address'],
-#                 'message': form.cleaned_data['message'],
-#             }
-#             message = "\n".join(body.values())
-#
-#             try:
-#                 # send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
-#                 # return HttpResponse('Ok')
-#             except BadHeaderError:
-#                 return HttpResponse('Invalid header found.')
-#     form = ContactForm()
-#     return render(request, "contact_page/contact.html", {'form': form, 'recaptcha_site_key': RECAPTCHA_PRIVATE_KEY})
+    def send_email(self):
+        try:
+            first_name = self.request.POST.get('first_name')
+            last_name = self.request.POST.get('last_name')
+            email_address = self.request.POST.get('email_address')
+            message = self.request.POST.get('message')
+
+            recipient_list = [email_address, ]
+            msg_email = EmailMessage(
+                subject=f'Hello {first_name} {last_name}',
+                body=message,
+                to=recipient_list
+            )
+            msg_email.send()
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        return redirect("contact_page:contact")
+        pass
+
+
 

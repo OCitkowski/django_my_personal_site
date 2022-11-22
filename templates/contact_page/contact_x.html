@@ -1,0 +1,13 @@
+{% load static %}
+{% include 'basis_of_project/header.html' %}
+
+{% block content %}
+
+    <form action="{% url 'contact_page:contact' %}" method="post">
+        {%csrf_token %}
+        {{ form.as_p }}
+        <button name="submit"> Save changes</button>
+    </form>
+
+{% endblock content %}
+{% include 'basis_of_project/footer.html' %}
