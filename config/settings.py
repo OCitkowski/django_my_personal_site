@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'solo.apps.SoloAppConfig',
     'debug_toolbar',
+    'captcha',
 
 
     # my apps
@@ -174,3 +175,8 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
+
+RECAPTCHA_PUBLIC_KEY = '6LeUHicjAAAAAPwDs8NQn5Vmw6zElyp5iUj_-olU'
+RECAPTCHA_PRIVATE_KEY = '6LeUHicjAAAAAN24N_dL6Px5V3ud_orJC79ZZX-E'
+# RECAPTCHA_DEFAULT_ACTION = 'generic'
+# RECAPTCHA_SCORE_THRESHOLD = 0.85
