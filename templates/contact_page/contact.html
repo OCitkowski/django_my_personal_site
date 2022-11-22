@@ -1,4 +1,5 @@
 {% load static %}
+
 {% include 'basis_of_project/header.html' %}
 
 {% block content %}
@@ -9,19 +10,19 @@
 
     <div class="fieldWrapper">
         {{ form.first_name.errors }}
-        <label for="{{ form.first_name.id_for_label }}">Your first_name:</label>
+        <label for="{{ form.first_name.id_for_label }}">Your first name:</label>
         {{ form.first_name }}
     </div>
 
     <div class="fieldWrapper">
         {{ form.last_name.errors }}
-        <label for="{{ form.last_name.id_for_label }}">Your last_name:</label>
+        <label for="{{ form.last_name.id_for_label }}">Your last name:</label>
         {{ form.last_name }}
     </div>
 
     <div class="fieldWrapper">
         {{ form.email_address.errors }}
-        <label for="{{ form.email_address.id_for_label }}">Your email_address:</label>
+        <label for="{{ form.email_address.id_for_label }}">Your email address:</label>
         {{ form.email_address }}
     </div>
 
@@ -29,12 +30,6 @@
         {{ form.message.errors }}
         <label for="{{ form.message.id_for_label }}">Your message:</label>
         {{ form.message }}
-    </div>
-
-    <div class="fieldWrapper">
-        {{ form.captcha.errors }}
-        <label for="{{ form.captcha.id_for_label }}">Your captcha:</label>
-        {{ form.captcha }}
     </div>
 
     <button type="submit" class="btn btn-primary">Send Message </button>

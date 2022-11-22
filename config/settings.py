@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ky-ky'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", ]
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'solo.apps.SoloAppConfig',
     'debug_toolbar',
-    'captcha',
+
 
     # my apps
     'basis_of_project.apps.BasisOfProjectConfig',
@@ -163,8 +163,6 @@ INTERNAL_IPS = [
     # ...
 ]
 
-RECAPTCHA_PUBLIC_KEY = "6LdNbhMjAAAAAFBrptfGBWxB1MqvFjroIPYv9pvU"
-RECAPTCHA_PRIVATE_KEY = "6LdNbhMjAAAAAKSUoYny1V7Ki5315fW4e4XyVx4f"
 
 #
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -1,7 +1,4 @@
 from .forms import ContactForm
-
-from config.settings import RECAPTCHA_PRIVATE_KEY
-# from myapp.forms import ContactForm
 from django.views.generic.edit import FormView
 from basis_of_project.utils import MENU
 from django.utils import timezone
@@ -9,13 +6,14 @@ from basis_of_project.models import SiteConfiguration
 from django.core.mail import EmailMessage, BadHeaderError
 from django.shortcuts import HttpResponse, redirect
 
+
 class ContactFormView(FormView):
     template_name = 'contact_page/contact.html'
     form_class = ContactForm
     success_url = '/contact/'
 
     def form_valid(self, form):
-        self.send_email()
+        self.send_email(form)
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -25,9 +23,10 @@ class ContactFormView(FormView):
         context['menu'] = MENU
         return context
 
-    def send_email(self):
+    def send_email(self, form):
         try:
-            first_name = self.request.POST.get('first_name')
+            first_name = form.cleaned_data.get('first_name')
+            # first_name = self.request.POST.get('first_name')
             last_name = self.request.POST.get('last_name')
             email_address = self.request.POST.get('email_address')
             message = self.request.POST.get('message')
