@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv #https://github.com/theskumar/python-dotenv/blob/main/README.md
+
+
+load_dotenv() #https://github.com/theskumar/python-dotenv/blob/main/README.md
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
     'solo.apps.SoloAppConfig',
     'debug_toolbar',
     'captcha',
+    'anymail', #https://anymail.dev/en/stable/installation/
 
 
     # my apps
@@ -164,19 +170,29 @@ INTERNAL_IPS = [
     # ...
 ]
 
-
-#
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# # EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.mail.yahoo.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = os.getenv("EMAIL_PORT")
+EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL")
 
-RECAPTCHA_PUBLIC_KEY = '6LeUHicjAAAAAPwDs8NQn5Vmw6zElyp5iUj_-olU'
-RECAPTCHA_PRIVATE_KEY = '6LeUHicjAAAAAN24N_dL6Px5V3ud_orJC79ZZX-E'
-# RECAPTCHA_DEFAULT_ACTION = 'generic'
-# RECAPTCHA_SCORE_THRESHOLD = 0.85
+
+RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
+
+
+#+ https://app.sparkpost.com/account/api-keys
+ANYMAIL = {
+    "SPARKPOST_API_KEY": os.getenv("SPARKPOST_API_KEY"),
+    "SPARKPOST_API_URL": os.getenv("SPARKPOST_API_URL"),  # use SparkPost EU
+    "SPARKPOST_TRACK_INITIAL_OPEN_AS_OPENED": True
+}
+EMAIL_BACKEND = "anymail.backends.sparkpost.EmailBackend"
+#-https://app.sparkpost.com/account/api-keys
+
+print(os.getenv('EMAIL_HOST_PASSWORD'))

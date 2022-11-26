@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -41,7 +41,8 @@ urlpatterns = [
     path('contact/', include('contact_page.urls')),
     path('api-auth/', include('rest_api.urls')),
     path('admin/', admin.site.urls),
-    path('__debug__/', include('debug_toolbar.urls')),
+    # path('__debug__/', include('debug_toolbar.urls')),
+    re_path(r'^anymail/', include('anymail.urls')),#https://anymail.dev/en/stable/installation/
 ]
 
 urlpatterns += staticfiles_urlpatterns()

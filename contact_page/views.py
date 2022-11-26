@@ -1,3 +1,4 @@
+from config import settings
 from .forms import ContactForm
 from django.views.generic.edit import FormView
 from basis_of_project.utils import MENU
@@ -5,6 +6,8 @@ from django.utils import timezone
 from basis_of_project.models import SiteConfiguration
 from django.core.mail import EmailMessage, BadHeaderError
 from django.shortcuts import HttpResponse, redirect
+from django.core.mail import send_mail
+
 
 
 class ContactFormView(FormView):
@@ -14,6 +17,21 @@ class ContactFormView(FormView):
 
     def form_valid(self, form):
         self.send_email(form)
+
+        # first_name = form.cleaned_data.get('first_name')
+        # # first_name = self.request.POST.get('first_name')
+        # last_name = self.request.POST.get('last_name')
+        # email_address = self.request.POST.get('email_address')
+        # message = self.request.POST.get('message')
+        #
+        # send_mail(subject=first_name,
+        #           message=message,
+        #           from_email=settings.EMAIL_HOST_USER,
+        #           recipient_list=[email_address, ],
+        #           auth_user='o.citkowski@yahoo.com',
+        #           auth_password='H4UEp47PBU8CjL7',
+        #           fail_silently=False, )
+
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -24,6 +42,7 @@ class ContactFormView(FormView):
         return context
 
     def send_email(self, form):
+
         try:
             first_name = form.cleaned_data.get('first_name')
             # first_name = self.request.POST.get('first_name')
@@ -34,14 +53,16 @@ class ContactFormView(FormView):
             recipient_list = [email_address, ]
             msg_email = EmailMessage(
                 subject=f'Hello {first_name} {last_name}',
+                from_email=settings.EMAIL_HOST_USER,
                 body=message,
-                to=recipient_list
-            )
+                to=recipient_list,
+                fail_silently=False
+                 )
             msg_email.send()
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return redirect("contact_page:contact")
-        pass
+
 
 
 
