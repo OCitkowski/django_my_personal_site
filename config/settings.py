@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'captcha',
     'anymail', #https://anymail.dev/en/stable/installation/
+    'django_extensions', #https://medium.com/ayuth/how-to-use-django-in-jupyter-notebook-561ea2401852
 
 
     # my apps
@@ -194,5 +195,3 @@ ANYMAIL = {
 }
 EMAIL_BACKEND = "anymail.backends.sparkpost.EmailBackend"
 #-https://app.sparkpost.com/account/api-keys
-
-print(os.getenv('EMAIL_HOST_PASSWORD'))
