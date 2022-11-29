@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'captcha',
     'anymail', #https://anymail.dev/en/stable/installation/
-    'django_extensions', #https://medium.com/ayuth/how-to-use-django-in-jupyter-notebook-561ea2401852
+
 
 
     # my apps
@@ -129,7 +129,7 @@ LANGUAGES = [
     ('en', 'English')
 ]
 
-TIME_ZONE = 'Europe/Kyiv'
+TIME_ZONE = 'Europe/Vilnius'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True

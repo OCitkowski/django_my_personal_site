@@ -61,3 +61,7 @@ recapcha v.3
     
     https://developers.google.com/recaptcha/docs/display
 
+anymail 
+
+    https://anymail.dev/en/stable/installation/
+
