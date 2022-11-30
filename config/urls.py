@@ -36,13 +36,14 @@ handler404 = 'basis_of_project.views.custom_page_not_found_view'
 urlpatterns = [
     path('api/', include(router.urls)),
     path('', include('home_page.urls')),
+    path('home/', include('home_page.urls')),
     path('aboutme/', include('about_me_page.urls')),
     path('resume/', include('resume_page.urls')),
     path('contact/', include('contact_page.urls')),
     path('api-auth/', include('rest_api.urls')),
     path('admin/', admin.site.urls),
     # path('__debug__/', include('debug_toolbar.urls')),
-    re_path(r'^anymail/', include('anymail.urls')),#https://anymail.dev/en/stable/installation/
+    # re_path(r'^anymail/', include('anymail.urls')),#https://anymail.dev/en/stable/installation/
 ]
 
 urlpatterns += staticfiles_urlpatterns()

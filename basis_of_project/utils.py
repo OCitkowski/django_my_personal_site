@@ -4,8 +4,7 @@ MENU = [{'title': "Home", 'url_name': '/home'},
         # {'title': "Portfolio", 'url_name': '/portfolio'},
         # {'title': "Blog", 'url_name': '/blogs'},
         {'title': "Contact", 'url_name': '/contact'},
-]
-
+        ]
 
 STATUS_CHOICES = [
     ('d', 'Draft'),

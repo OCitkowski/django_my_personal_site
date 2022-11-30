@@ -65,3 +65,7 @@ anymail
 
     https://anymail.dev/en/stable/installation/
 
+python-dotenv
+    
+    pip install python-dotenv
+
