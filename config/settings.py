@@ -11,11 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
-from dotenv import load_dotenv #https://github.com/theskumar/python-dotenv/blob/main/README.md
+from dotenv import load_dotenv  # https://github.com/theskumar/python-dotenv/blob/main/README.md
 
-
-load_dotenv() #https://github.com/theskumar/python-dotenv/blob/main/README.md
-
+load_dotenv()  # https://github.com/theskumar/python-dotenv/blob/main/README.md
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,14 +46,13 @@ INSTALLED_APPS = [
     'captcha',
     # 'anymail', #https://anymail.dev/en/stable/installation/
 
-
-
     # my apps
     'basis_of_project.apps.BasisOfProjectConfig',
     'home_page.apps.HomePageConfig',
     'about_me_page.apps.AboutMePageConfig',
     'resume_page.apps.ResumePageConfig',
     'contact_page.apps.ContactPageConfig',
+    'handbook.apps.HandbookConfig',
 ]
 
 MIDDLEWARE = [
@@ -182,10 +179,8 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = os.getenv("EMAIL_PORT")
 EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL")
 
-
 RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY")
 RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
-
 
 # #+ https://app.sparkpost.com/account/api-keys
 # ANYMAIL = {

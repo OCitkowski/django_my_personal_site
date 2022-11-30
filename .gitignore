@@ -128,3 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /templates/about_me_page/index-light.html
+/my.ci
+/my.md
