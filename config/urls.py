@@ -34,7 +34,7 @@ handler404 = 'basis_of_project.views.custom_page_not_found_view'
 # handler400 = 'basis_of_project.views.custom_bad_request_view'
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('api/v1/', include(router.urls)),
     path('', include('home_page.urls')),
     path('home/', include('home_page.urls')),
     path('aboutme/', include('about_me_page.urls')),
