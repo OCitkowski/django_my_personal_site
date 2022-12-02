@@ -3,6 +3,7 @@ from solo.admin import SingletonModelAdmin
 from .models import TextAboutMe, PersonalInformation, Services
 
 
+
 @admin.register(TextAboutMe)  # it the variant 1
 class TextAboutMeAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'text')
