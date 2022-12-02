@@ -34,6 +34,7 @@ class Source(models.Model):
         return self.name
 
 
+
 class Note(models.Model):
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, blank=True)
     source = models.ForeignKey(Source, on_delete=models.CASCADE, blank=True)
