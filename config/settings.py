@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv  # https://github.com/theskumar/python-dotenv/blob/main/README.md
 
+
+
 load_dotenv()  # https://github.com/theskumar/python-dotenv/blob/main/README.md
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

@@ -34,7 +34,6 @@ class Source(models.Model):
         return self.name
 
 
-
 class Note(models.Model):
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, blank=True)
     source = models.ForeignKey(Source, on_delete=models.CASCADE, blank=True)
@@ -50,4 +49,4 @@ class Note(models.Model):
         ordering = ['owner', 'source', 'date_update']
 
     def __str__(self):
-        return self.text
+        return f'{self.source} - {self.text} - {self.owner}'
