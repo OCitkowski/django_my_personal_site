@@ -2,7 +2,7 @@ from .models import Note, Owner, Source, STATUS
 from rest_framework import serializers
 
 
-class SourceSerializer(serializers.HyperlinkedModelSerializer):
+class SourceSerializer(serializers.ModelSerializer):
     note_sources = serializers.StringRelatedField(many=True)
 
     class Meta:
@@ -20,7 +20,6 @@ class OwnerSerializer(serializers.ModelSerializer):
 
 
 class NoteSerializer(serializers.ModelSerializer):
-    # date_update = serializers.DateTimeField(format='%d-%m-%Y %H:%M:%S', input_formats=None)
     date_update = serializers.DateField(format="%Y-%m-%d", input_formats=['%Y-%m-%d', ])
 
     class Meta:

@@ -1,7 +1,7 @@
 import datetime
+from django.contrib.auth.models import User
 
 from django.db import models
-
 
 STATUS = [
     ('A', 'Active'),
@@ -49,7 +49,7 @@ class Note(models.Model):
 
     class Meta:
         verbose_name = 'Note'
-        verbose_name_plural = 'Notess'
+        verbose_name_plural = 'Notes'
         ordering = ['owner', 'source', 'date_update']
 
     def __str__(self):

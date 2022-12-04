@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 from config import settings
 from handbook.views import NoteViewSet, OwnerViewSet, SourceViewSet
 
+
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -25,8 +26,8 @@ class UserViewSet(viewsets.ModelViewSet):
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'notes', NoteViewSet)
-router.register(r'owners', OwnerViewSet)
-router.register(r'source', SourceViewSet)
+router.register(r'owners', OwnerViewSet, 'owner_name')
+router.register(r'source', SourceViewSet, 'source_name')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
@@ -45,6 +46,7 @@ urlpatterns = [
     path('contact/', include('contact_page.urls')),
     path('api-auth/', include('rest_api.urls')),
     path('admin/', admin.site.urls),
+    # re_path('^owners/(?P<username>.+)/$', OwnerViewSet.as_view()),
     # path('__debug__/', include('debug_toolbar.urls')),
     # re_path(r'^anymail/', include('anymail.urls')),#https://anymail.dev/en/stable/installation/
 ]
