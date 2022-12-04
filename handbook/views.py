@@ -4,8 +4,10 @@ from rest_framework import permissions
 from handbook.serializers import NoteSerializer, OwnerSerializer, SourceSerializer
 
 
-class NoteViewSet(viewsets.ModelViewSet):
-    queryset = Note.objects.all().order_by('-date_update')
+class NoteViewSet(mixins.ListModelMixin,
+                  mixins.CreateModelMixin,
+                  viewsets.GenericViewSet):
+    queryset = Note.objects.prefetch_related('owner').order_by('-date_update')
     serializer_class = NoteSerializer
     permission_classes = [permissions.IsAuthenticated]
 

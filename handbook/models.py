@@ -35,8 +35,8 @@ class Source(models.Model):
 
 
 class Note(models.Model):
-    owner = models.ForeignKey(Owner, on_delete=models.CASCADE, blank=True)
-    source = models.ForeignKey(Source, on_delete=models.CASCADE, blank=True)
+    owner = models.ForeignKey(Owner, on_delete=models.CASCADE, blank=True, related_name='note_owners')
+    source = models.ForeignKey(Source, on_delete=models.CASCADE, blank=True, related_name='note_sources')
     date_update = models.DateTimeField(auto_now_add=True)
 
     status = models.CharField(max_length=1, choices=STATUS, default=STATUS[0])

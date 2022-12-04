@@ -59,3 +59,10 @@ requirements
     pip freeze > requirements.txt 
     pip install -r requirements.txt
     pip uninstall requirements.txt
+
+
+token
+
+    from rest_framework.authtoken.models import Token
+        token = Token.objects.create(user=fox)
+    print(token.key)

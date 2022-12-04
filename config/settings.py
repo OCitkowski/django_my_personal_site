@@ -13,8 +13,6 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv  # https://github.com/theskumar/python-dotenv/blob/main/README.md
 
-
-
 load_dotenv()  # https://github.com/theskumar/python-dotenv/blob/main/README.md
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ky-ky'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -47,6 +45,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'captcha',
     # 'anymail', #https://anymail.dev/en/stable/installation/
+    'rest_framework.authtoken',  # https://www.django-rest-framework.org/api-guide/authentication/
 
     # my apps
     'basis_of_project.apps.BasisOfProjectConfig',
@@ -160,8 +159,10 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'
-    ]
+        'rest_framework.permissions.IsAuthenticated'],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_api.models.BearerAuthentication']
+
 }
 
 INTERNAL_IPS = [
