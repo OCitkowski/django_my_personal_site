@@ -6,6 +6,8 @@ from handbook.serializers import NoteSerializer, OwnerSerializer, SourceSerializ
 
 class NoteViewSet(mixins.ListModelMixin,
                   mixins.CreateModelMixin,
+                  mixins.UpdateModelMixin,
+                  mixins.DestroyModelMixin,
                   viewsets.GenericViewSet):
     queryset = Note.objects.prefetch_related('owner').order_by('-date_update')
     serializer_class = NoteSerializer
