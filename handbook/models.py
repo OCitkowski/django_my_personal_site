@@ -1,4 +1,7 @@
+import datetime
+
 from django.db import models
+
 
 STATUS = [
     ('A', 'Active'),
@@ -37,7 +40,8 @@ class Source(models.Model):
 class Note(models.Model):
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, blank=True, related_name='note_owners')
     source = models.ForeignKey(Source, on_delete=models.CASCADE, blank=True, related_name='note_sources')
-    date_update = models.DateTimeField(auto_now_add=True)
+    # date_update = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateField(default=datetime.date.today)
 
     status = models.CharField(max_length=1, choices=STATUS, default=STATUS[0])
     text = models.TextField(default=TEXT_DEFAULT)

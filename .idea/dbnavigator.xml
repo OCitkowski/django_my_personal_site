@@ -28,30 +28,27 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="cf842c60-d864-4e8c-ab24-771ada34cd28">
-      <console name="Connection 1" type="STANDARD" schema="main" session="Main" />
-    </connection>
     <connection id="408a020e-7b81-48f0-8092-370b67373c8d">
       <console name="Connection" type="STANDARD" schema="main" session="Main" />
+    </connection>
+    <connection id="304cb0d2-c2a2-4013-997b-b8cdde63209d">
+      <console name="Connection 1" type="STANDARD" schema="main" session="Session 1" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="cf842c60-d864-4e8c-ab24-771ada34cd28" />
     <connection id="408a020e-7b81-48f0-8092-370b67373c8d" />
+    <connection id="304cb0d2-c2a2-4013-997b-b8cdde63209d">
+      <session name="Session 1" id="174e9362-2cb3-4aef-8f65-0fb68af58961" />
+    </connection>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="408a020e-7b81-48f0-8092-370b67373c8d" dataset="main.basis_of_project_siteconfiguration" active-filter-id="8a7d1820-8608-4aeb-b829-c68914be3ee3">
       <filter id="8a7d1820-8608-4aeb-b829-c68914be3ee3" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
     </filter-actions>
-    <filter-actions connection-id="cf842c60-d864-4e8c-ab24-771ada34cd28" dataset="main.resume_page_experience" active-filter-id="e529b259-e87a-4d69-a9d3-64523079f677">
-      <filter id="e529b259-e87a-4d69-a9d3-64523079f677" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
-    </filter-actions>
-    <filter-actions connection-id="cf842c60-d864-4e8c-ab24-771ada34cd28" dataset="main.resume_page_education" active-filter-id="66ce6ed7-bbf8-4c01-b735-927b093b4014">
-      <filter id="66ce6ed7-bbf8-4c01-b735-927b093b4014" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
-    </filter-actions>
+    <filter-actions connection-id="304cb0d2-c2a2-4013-997b-b8cdde63209d" dataset="main.handbook_note" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -82,9 +79,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="cf842c60-d864-4e8c-ab24-771ada34cd28" active="false" signed="true">
+      <connection id="408a020e-7b81-48f0-8092-370b67373c8d" active="false" signed="true">
         <database>
-          <name value="Connection 1" />
+          <name value="Connection" />
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
@@ -169,9 +166,9 @@
           <object-name-filters />
         </object-filters>
       </connection>
-      <connection id="408a020e-7b81-48f0-8092-370b67373c8d" active="false" signed="true">
+      <connection id="304cb0d2-c2a2-4013-997b-b8cdde63209d" active="true" signed="true">
         <database>
-          <name value="Connection" />
+          <name value="Connection 1" />
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />

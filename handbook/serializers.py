@@ -20,7 +20,8 @@ class OwnerSerializer(serializers.ModelSerializer):
 
 
 class NoteSerializer(serializers.ModelSerializer):
-    date_update = serializers.DateTimeField(format='%Y')
+    # date_update = serializers.DateTimeField(format='%d-%m-%Y %H:%M:%S', input_formats=None)
+    date_update = serializers.DateField(format="%Y-%m-%d", input_formats=['%Y-%m-%d', ])
 
     class Meta:
         model = Note
