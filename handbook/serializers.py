@@ -21,7 +21,9 @@ class OwnerSerializer(serializers.ModelSerializer):
 
 class NoteSerializer(serializers.ModelSerializer):
     date_update = serializers.DateField(format="%Y-%m-%d", input_formats=['%Y-%m-%d', ])
+    ownername = serializers.ReadOnlyField(source='owner.name')
+    sourcename = serializers.ReadOnlyField(source='source.name')
 
     class Meta:
         model = Note
-        fields = ('id', 'owner', 'source', 'comment', 'status', 'text', 'date_update')
+        fields = ('id', 'owner', 'ownername', 'source', 'sourcename', 'comment', 'status', 'text', 'date_update')
