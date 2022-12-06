@@ -52,6 +52,23 @@ django
 
     python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 
+tests 
+    
+    https://docs-djangoproject-com.translate.goog/en/4.1/topics/testing/overview/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en
+    # for ran all tests
+    $ ./manage.py test
+
+    # Run all the tests in the animals.tests module
+    $ ./manage.py test animals.tests
+    
+    # Run all the tests found within the 'animals' package
+    $ ./manage.py test animals
+    
+    # Run just one test case
+    $ ./manage.py test animals.tests.AnimalTestCase
+    
+    # Run just one test method
+    $ ./manage.py test animals.tests.AnimalTestCase.test_animals_can_speak
 
 apps
 
