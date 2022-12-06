@@ -53,4 +53,4 @@ class Note(models.Model):
         ordering = ['owner', 'source', 'date_update']
 
     def __str__(self):
-        return f'{self.source} - {self.text} - {self.owner}'
+        return f' for this owner - {self.owner} and sourse- {self.source} --- {self.text} - '

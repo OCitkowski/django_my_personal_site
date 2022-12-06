@@ -11,8 +11,9 @@ class SourceSerializer(serializers.ModelSerializer):
 
 
 class OwnerSerializer(serializers.ModelSerializer):
-    # note_owners = serializers.StringRelatedField(many=True)
-    note_owners = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    note_owners = serializers.StringRelatedField(many=True)
+
+    # note_owners = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Owner
@@ -24,9 +25,19 @@ class NoteSerializer(serializers.ModelSerializer):
     ownername = serializers.ReadOnlyField(source='owner.name')
     sourcename = serializers.ReadOnlyField(source='source.name')
     count_note = serializers.SerializerMethodField()
+
     class Meta:
         model = Note
-        fields = ('id', 'owner', 'ownername', 'source', 'sourcename', 'comment', 'status', 'text', 'date_update', 'count_note')
+        fields = ('id',
+                  'owner',
+                  'ownername',
+                  'source',
+                  'sourcename',
+                  'comment',
+                  'status',
+                  'text',
+                  'date_update',
+                  'count_note')
 
     def get_count_note(self, instance):
         return Note.objects.all().count()
