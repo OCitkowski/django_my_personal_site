@@ -6,6 +6,7 @@ from django.urls import path
 app_name = 'rest_api'
 
 urlpatterns = [
+
     # ex: /blog
     # path('', TestView.as_view(), name='home'),
     # path('api/v1/test_list', TestApiView.as_view()),

@@ -86,3 +86,8 @@ token
     from rest_framework.authtoken.models import Token
         token = Token.objects.create(user=fox)
     print(token.key)
+
+curl 
+
+    curl -X POST -H “Authorization: Bearer 03e24877ffd959815a174a958a1673d21f37698d” -H “Content-Type: application/json” -H “Accepts: application/json” http://localhost:8000/api/token_auth/
+    curl -H “Authorization: Bearer 03e24877ffd959815a174a958a1673d21f37698d”  http://localhost:8000/api/v1/

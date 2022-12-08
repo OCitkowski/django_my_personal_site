@@ -7,6 +7,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from config import settings
 from handbook.views import NoteViewSet, OwnerViewSet, SourceViewSet
+from rest_framework.authtoken import views
 
 
 # Serializers define the API representation.
@@ -38,6 +39,7 @@ handler404 = 'basis_of_project.views.custom_page_not_found_view'
 # handler400 = 'basis_of_project.views.custom_bad_request_view'
 
 urlpatterns = [
+    path('api/token_auth/', views.obtain_auth_token, name='token_auth'),
     path('api/v1/', include(router.urls)),
     path('', include('home_page.urls')),
     # path('home/', include('home_page.urls')),
