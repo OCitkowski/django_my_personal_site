@@ -33,7 +33,7 @@ class Key(models.Model):
         verbose_name_plural = 'Keys'
 
     def __str__(self):
-        return self.link + self.type_key
+        return f'{self.link} / {self.type_key}'
 
 
 class Owner(models.Model):
