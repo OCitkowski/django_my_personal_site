@@ -11,6 +11,31 @@ STATUS = [
 TEXT_DEFAULT = 'empty'
 
 
+class TypeKey(models.Model):
+    """type for key"""
+    name = models.CharField(max_length=150, default=TEXT_DEFAULT)
+
+    class Meta:
+        verbose_name = 'TypeKey'
+        verbose_name_plural = 'TypeKeys'
+
+    def __str__(self):
+        return self.name
+
+
+class Key(models.Model):
+    """Key for Note"""
+    link = models.TextField(max_length=500, default=TEXT_DEFAULT)
+    type_key = models.ForeignKey(TypeKey, on_delete=models.CASCADE, blank=True, related_name='type_key')
+
+    class Meta:
+        verbose_name = 'Key'
+        verbose_name_plural = 'Keys'
+
+    def __str__(self):
+        return self.link + self.type_key
+
+
 class Owner(models.Model):
     """Owner for Note"""
     name = models.CharField(max_length=150, default=TEXT_DEFAULT)
@@ -40,7 +65,7 @@ class Source(models.Model):
 class Note(models.Model):
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, blank=True, related_name='note_owners')
     source = models.ForeignKey(Source, on_delete=models.CASCADE, blank=True, related_name='note_sources')
-    # date_update = models.DateTimeField(auto_now_add=True)
+    key = models.ForeignKey(Key, on_delete=models.CASCADE, blank=True, related_name='note_keys')
     date_update = models.DateField(default=datetime.date.today)
 
     status = models.CharField(max_length=1, choices=STATUS, default=STATUS[0])

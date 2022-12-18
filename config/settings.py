@@ -186,11 +186,3 @@ EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL")
 RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY")
 RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
 
-# #+ https://app.sparkpost.com/account/api-keys
-# ANYMAIL = {
-#     "SPARKPOST_API_KEY": os.getenv("SPARKPOST_API_KEY"),
-#     "SPARKPOST_API_URL": os.getenv("SPARKPOST_API_URL"),  # use SparkPost EU
-#     "SPARKPOST_TRACK_INITIAL_OPEN_AS_OPENED": True
-# }
-# EMAIL_BACKEND = "anymail.backends.sparkpost.EmailBackend"
-# #-https://app.sparkpost.com/account/api-keys

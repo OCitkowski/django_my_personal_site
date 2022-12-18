@@ -1,5 +1,13 @@
-from .models import Note, Owner, Source, STATUS
+from .models import Note, Owner, Source, STATUS, Key, TypeKey
 from rest_framework import serializers
+
+
+class TypeKeySerializer(serializers.ModelSerializer):
+    note_type_key = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Source
+        fields = '__all__'
 
 
 class SourceSerializer(serializers.ModelSerializer):
@@ -24,20 +32,29 @@ class NoteSerializer(serializers.ModelSerializer):
     date_update = serializers.DateField(format="%Y-%m-%d", input_formats=['%Y-%m-%d', ])
     ownername = serializers.ReadOnlyField(source='owner.name')
     sourcename = serializers.ReadOnlyField(source='source.name')
-    count_note = serializers.SerializerMethodField()
+    keylink = serializers.ReadOnlyField(source='key.link')
+    # type_key = serializers.StringRelatedField(many=False)
+    # type_key = TypeKeySerializer(required=False)
+    type_key = serializers.ReadOnlyField(source='key.type_key.name')
+
+    # count_note = serializers.SerializerMethodField()
 
     class Meta:
         model = Note
         fields = ('id',
-                  'owner',
+                  # 'owner',
                   'ownername',
-                  'source',
+                  # 'source',
                   'sourcename',
-                  'comment',
-                  'status',
                   'text',
-                  'date_update',
-                  'count_note')
+                  'comment',
+                  'keylink',
+                  'type_key',
+                  # 'key',
+                  'status',
+                  # 'count_note',
+                  'date_update'
+                  )
 
     def get_count_note(self, instance):
         return Note.objects.all().count()
