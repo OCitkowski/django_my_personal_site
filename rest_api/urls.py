@@ -1,15 +1,21 @@
-from django.urls import path
-
-# from .views import TestView
-# from rest_api.views import TestApiView, CommentApiView
+from django.urls import path, include
+from handbook.views import NoteViewSet, OwnerViewSet, SourceViewSet, TypeKeyViewSet, KeyViewSet
+from rest_api.views import UserViewSet, HomeViewSet
+from rest_framework import routers
 
 app_name = 'rest_api'
 
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'notes', NoteViewSet)
+router.register(r'owners', OwnerViewSet, 'owner_name')
+router.register(r'source', SourceViewSet, 'source_name')
+router.register(r'type_key', TypeKeyViewSet, 'type_key')
+router.register(r'key', KeyViewSet)
+router.register(r'home', HomeViewSet, 'home_api')
+
 urlpatterns = [
 
-    # ex: /blog
-    # path('', TestView.as_view(), name='home'),
-    # path('api/v1/test_list', TestApiView.as_view()),
-    # path('api/v1/comment_list', CommentApiView.as_view()),
-    # path('api/v1/comment_list/<int:pk>/', CommentApiView.as_view())
+    path('', include(router.urls)),
+
 ]

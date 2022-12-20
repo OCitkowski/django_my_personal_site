@@ -1,7 +1,7 @@
-from .models import Note, Source, Owner
+from .models import Note, Source, Owner, Key, TypeKey
 from rest_framework import viewsets, mixins
 from rest_framework import permissions
-from handbook.serializers import NoteSerializer, OwnerSerializer, SourceSerializer
+from handbook.serializers import NoteSerializer, OwnerSerializer, SourceSerializer, KeySerializer, TypeKeySerializer
 
 
 class NoteViewSet(mixins.ListModelMixin,
@@ -50,3 +50,26 @@ class OwnerViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(name=name_request)
             print(name_request)
         return queryset
+
+
+class TypeKeyViewSet(viewsets.ModelViewSet):
+    serializer_class = TypeKeySerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `username` query parameter in the URL.
+        http://example.com/api/v1/owners?name_request=denvercoder9
+        """
+        queryset = TypeKey.objects.all()
+        name_request = self.request.query_params.get('type_key')
+        if name_request is not None:
+            queryset = queryset.filter(name=name_request)
+            print(name_request)
+        return queryset
+
+class KeyViewSet(viewsets.ModelViewSet):
+    queryset = Key.objects.all()
+    serializer_class = KeySerializer
+    permission_classes = [permissions.IsAuthenticated]

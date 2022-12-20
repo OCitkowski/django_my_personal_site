@@ -1,13 +1,25 @@
-from .models import Note, Owner, Source, STATUS, Key, TypeKey
+from .models import Note, Owner, Source, Key, TypeKey
 from rest_framework import serializers
 
 
 class TypeKeySerializer(serializers.ModelSerializer):
-    note_type_key = serializers.StringRelatedField(many=True)
+    type_key = serializers.StringRelatedField(many=True)
 
     class Meta:
-        model = Source
+        model = TypeKey
         fields = '__all__'
+
+
+class KeySerializer(serializers.ModelSerializer):
+    type_key_name = serializers.ReadOnlyField(source='type_key.name')
+
+    class Meta:
+        model = Key
+        # fields = '__all__'
+        fields = ('id',
+                  'link',
+                  'type_key_name',
+                  'type_key')
 
 
 class SourceSerializer(serializers.ModelSerializer):
@@ -33,27 +45,24 @@ class NoteSerializer(serializers.ModelSerializer):
     ownername = serializers.ReadOnlyField(source='owner.name')
     sourcename = serializers.ReadOnlyField(source='source.name')
     keylink = serializers.ReadOnlyField(source='key.link')
-    # type_key = serializers.StringRelatedField(many=False)
-    # type_key = TypeKeySerializer(required=False)
     type_key = serializers.ReadOnlyField(source='key.type_key.name')
-
-    # count_note = serializers.SerializerMethodField()
+    count_note = serializers.SerializerMethodField()
 
     class Meta:
         model = Note
         fields = ('id',
-                  # 'owner',
+                  'owner',
                   'ownername',
-                  # 'source',
+                  'source',
                   'sourcename',
                   'text',
                   'comment',
                   'keylink',
                   'type_key',
-                  # 'key',
+                  'key',
                   'status',
-                  # 'count_note',
-                  'date_update'
+                  'date_update',
+                  'count_note',
                   )
 
     def get_count_note(self, instance):

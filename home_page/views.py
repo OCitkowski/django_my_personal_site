@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView
 from basis_of_project.models import SiteConfiguration
 from basis_of_project.utils import MENU
 from django.utils import timezone
@@ -18,3 +18,5 @@ class HomeView(ListView):
         context['now'] = timezone.now()
         context['menu'] = MENU
         return context
+
+
