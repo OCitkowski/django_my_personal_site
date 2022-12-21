@@ -4,7 +4,9 @@ ___
 >my comands
    1. python manage.py faker_fill_notes 1000 // create notes
    2. python manage.py faker_fill 1000 // create all
-
+   3. python manage.py delete_all_data
+   4. python manage.py post_all_data
+ 
 
 >kill port
 1. sudo lsof -t -i tcp:8000 | xargs kill -9
