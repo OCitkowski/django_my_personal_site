@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from handbook.models import TypeKey, Key, Owner, Source, STATUS, Note
-from faker import factory, Faker
+from faker import Faker
 
 # locale_list = ['en-US', 'uk-UA', 'de-DE']
 locale_list = ['en-US']

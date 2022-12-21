@@ -38,8 +38,7 @@ django
     pip install django
     django-admin startproject config .
 
-    python manage.py migrate 
-    python manage.py migrate --run-syncdb
+    python manage.py migrate
     python manage.py makemigrations
 
     python manage.py createsuperuser

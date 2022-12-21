@@ -1,12 +1,9 @@
 from django.core.management.base import BaseCommand, CommandError
-from handbook.models import TypeKey, Key, Owner, Source, STATUS, Note
-from faker import factory, Faker
 
 from home_page.models import Home
 from about_me_page.models import TextAboutMe, PersonalInformation, Services
 from resume_page.models import Skills, Education, Experience
 
-from basis_of_project.utils import STATUS_CHOICES
 import sqlite3
 
 models = {Home: 'home_page_home',
