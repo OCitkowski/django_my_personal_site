@@ -32,11 +32,13 @@
       <console name="Connection" type="STANDARD" schema="main" session="Main" />
     </connection>
     <connection id="304cb0d2-c2a2-4013-997b-b8cdde63209d">
-      <console name="Connection 1" type="STANDARD" schema="main" session="Session 1" />
+      <console name="Connection 1" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="304cb0d2-c2a2-4013-997b-b8cdde63209d" object-ref="schemas/main/tables/resume_page_experience" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="408a020e-7b81-48f0-8092-370b67373c8d" />
@@ -48,7 +50,19 @@
     <filter-actions connection-id="408a020e-7b81-48f0-8092-370b67373c8d" dataset="main.basis_of_project_siteconfiguration" active-filter-id="8a7d1820-8608-4aeb-b829-c68914be3ee3">
       <filter id="8a7d1820-8608-4aeb-b829-c68914be3ee3" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
     </filter-actions>
+    <filter-actions connection-id="304cb0d2-c2a2-4013-997b-b8cdde63209d" dataset="main.about_me_page_personalinformation" active-filter-id="" />
+    <filter-actions connection-id="304cb0d2-c2a2-4013-997b-b8cdde63209d" dataset="main.about_me_page_services" active-filter-id="" />
+    <filter-actions connection-id="304cb0d2-c2a2-4013-997b-b8cdde63209d" dataset="main.about_me_page_textaboutme" active-filter-id="" />
     <filter-actions connection-id="304cb0d2-c2a2-4013-997b-b8cdde63209d" dataset="main.handbook_note" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="304cb0d2-c2a2-4013-997b-b8cdde63209d" dataset="main.resume_page_experience" active-filter-id="ffdd7995-17db-4a1c-8935-389233b7b0c7">
+      <filter id="ffdd7995-17db-4a1c-8935-389233b7b0c7" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
+    </filter-actions>
+    <filter-actions connection-id="304cb0d2-c2a2-4013-997b-b8cdde63209d" dataset="main.resume_page_education" active-filter-id="50e3f1f9-f26d-476a-b1c7-dc3e7fe59443">
+      <filter id="50e3f1f9-f26d-476a-b1c7-dc3e7fe59443" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
+    </filter-actions>
+    <filter-actions connection-id="304cb0d2-c2a2-4013-997b-b8cdde63209d" dataset="main.resume_page_skills" active-filter-id="ab836167-55e2-4a96-bfe6-7473a00dc453">
+      <filter id="ab836167-55e2-4a96-bfe6-7473a00dc453" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -181,7 +195,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="$PROJECT_DIR$/db.sqlite3" schema="main" />
+            <file path="$PROJECT_DIR$/copySQLite/db.sqlite3" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
