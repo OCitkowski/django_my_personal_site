@@ -28,3 +28,9 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
 ## then:
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
+
+
+___
+
+git clone https://github.com/OCitkowski/django_my_personal_site.git
+mkvirtualenv --python=/usr/bin/python3.10 mysite-virtualenv

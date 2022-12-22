@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     # others apps
     'rest_framework',
     'solo.apps.SoloAppConfig',
-    'debug_toolbar',
+    'debug_toolbar', #python -m pip install django-debug-toolbar
     'captcha',
     # 'anymail', #https://anymail.dev/en/stable/installation/
     'rest_framework.authtoken',  # https://www.django-rest-framework.org/api-guide/authentication/
