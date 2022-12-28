@@ -40,6 +40,10 @@ Installation Django REST framework
     pip install markdown # Markdown support for the browsable AP
     pip install django-filter # Filtering support
 
+i had a little problem, but, i had solution:
+
+    python manage.py migrate --run-syncdb
+
 Save to requirements.txt
 
     pip freeze > requirements.txt
@@ -53,9 +57,7 @@ Installation Django django-solo
     pip install django-solo
     https://github.com/lazybird/django-solo/blob/master/README.md
 
-i had a little problem, but, i had solution:
 
-    python manage.py migrate --run-syncdb
 
 install django-debug-toolbar
 

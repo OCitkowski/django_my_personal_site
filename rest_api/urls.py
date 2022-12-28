@@ -7,7 +7,7 @@ app_name = 'rest_api'
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'notes', NoteViewSet)
+router.register(r'notes', NoteViewSet, 'note_name')
 router.register(r'owners', OwnerViewSet, 'owner_name')
 router.register(r'source', SourceViewSet, 'source_name')
 router.register(r'type_key', TypeKeyViewSet, 'type_key')
