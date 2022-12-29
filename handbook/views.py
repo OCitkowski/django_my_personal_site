@@ -34,6 +34,7 @@ class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+
     def get_queryset(self):
         """
         Optionally restricts the returned purchases to a given user,
@@ -44,6 +45,7 @@ class NoteViewSet(viewsets.ModelViewSet):
 
         value_source = self.request.query_params.get('source')
         value_owner = self.request.query_params.get('owner')
+
 
         for params in self.request.query_params:
             if params == 'source':
